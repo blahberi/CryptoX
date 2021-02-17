@@ -3,22 +3,32 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "CryptoX-Installer(beta)", "CryptoXInstall\CryptoXInstall.vdproj", "{B4FF1C87-7913-4AF5-814B-A6DC55F49EC8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptoX", "CryptoX\CryptoX.csproj", "{CFAD61C9-2776-48A8-9EC7-A5372EC36708}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoX", "CryptoX\CryptoX.csproj", "{CFAD61C9-2776-48A8-9EC7-A5372EC36708}"
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "CryptoXinstaller", "CryptoXinstaller\CryptoXinstaller.wixproj", "{60B4657E-3D14-46C4-BB4A-45BC80AB2F44}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B4FF1C87-7913-4AF5-814B-A6DC55F49EC8}.Debug|Any CPU.ActiveCfg = Debug
-		{B4FF1C87-7913-4AF5-814B-A6DC55F49EC8}.Release|Any CPU.ActiveCfg = Release
 		{CFAD61C9-2776-48A8-9EC7-A5372EC36708}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CFAD61C9-2776-48A8-9EC7-A5372EC36708}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFAD61C9-2776-48A8-9EC7-A5372EC36708}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CFAD61C9-2776-48A8-9EC7-A5372EC36708}.Debug|x86.Build.0 = Debug|Any CPU
 		{CFAD61C9-2776-48A8-9EC7-A5372EC36708}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CFAD61C9-2776-48A8-9EC7-A5372EC36708}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFAD61C9-2776-48A8-9EC7-A5372EC36708}.Release|x86.ActiveCfg = Release|Any CPU
+		{CFAD61C9-2776-48A8-9EC7-A5372EC36708}.Release|x86.Build.0 = Release|Any CPU
+		{60B4657E-3D14-46C4-BB4A-45BC80AB2F44}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{60B4657E-3D14-46C4-BB4A-45BC80AB2F44}.Debug|x86.ActiveCfg = Debug|x86
+		{60B4657E-3D14-46C4-BB4A-45BC80AB2F44}.Debug|x86.Build.0 = Debug|x86
+		{60B4657E-3D14-46C4-BB4A-45BC80AB2F44}.Release|Any CPU.ActiveCfg = Release|x86
+		{60B4657E-3D14-46C4-BB4A-45BC80AB2F44}.Release|x86.ActiveCfg = Release|x86
+		{60B4657E-3D14-46C4-BB4A-45BC80AB2F44}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
