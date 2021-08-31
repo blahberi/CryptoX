@@ -11,6 +11,14 @@
         ///  Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -28,7 +36,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CryptoForm));
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.btnEncrypt = new System.Windows.Forms.Button();
             this.btnDecrypt = new System.Windows.Forms.Button();
@@ -46,9 +53,9 @@
             // 
             // btnEncrypt
             // 
-            this.btnEncrypt.Location = new System.Drawing.Point(92, 197);
+            this.btnEncrypt.Location = new System.Drawing.Point(79, 171);
             this.btnEncrypt.Name = "btnEncrypt";
-            this.btnEncrypt.Size = new System.Drawing.Size(124, 59);
+            this.btnEncrypt.Size = new System.Drawing.Size(106, 51);
             this.btnEncrypt.TabIndex = 2;
             this.btnEncrypt.Text = "encrypt";
             this.btnEncrypt.UseVisualStyleBackColor = true;
@@ -56,9 +63,9 @@
             // 
             // btnDecrypt
             // 
-            this.btnDecrypt.Location = new System.Drawing.Point(340, 197);
+            this.btnDecrypt.Location = new System.Drawing.Point(291, 171);
             this.btnDecrypt.Name = "btnDecrypt";
-            this.btnDecrypt.Size = new System.Drawing.Size(124, 59);
+            this.btnDecrypt.Size = new System.Drawing.Size(106, 51);
             this.btnDecrypt.TabIndex = 2;
             this.btnDecrypt.Text = "decrypt";
             this.btnDecrypt.UseVisualStyleBackColor = true;
@@ -66,9 +73,9 @@
             // 
             // btnGenerateKey
             // 
-            this.btnGenerateKey.Location = new System.Drawing.Point(576, 197);
+            this.btnGenerateKey.Location = new System.Drawing.Point(494, 171);
             this.btnGenerateKey.Name = "btnGenerateKey";
-            this.btnGenerateKey.Size = new System.Drawing.Size(124, 59);
+            this.btnGenerateKey.Size = new System.Drawing.Size(106, 51);
             this.btnGenerateKey.TabIndex = 2;
             this.btnGenerateKey.Text = "generate key";
             this.btnGenerateKey.UseVisualStyleBackColor = true;
@@ -76,9 +83,9 @@
             // 
             // btnOpenFile
             // 
-            this.btnOpenFile.Location = new System.Drawing.Point(160, 12);
+            this.btnOpenFile.Location = new System.Drawing.Point(137, 10);
             this.btnOpenFile.Name = "btnOpenFile";
-            this.btnOpenFile.Size = new System.Drawing.Size(218, 75);
+            this.btnOpenFile.Size = new System.Drawing.Size(187, 65);
             this.btnOpenFile.TabIndex = 3;
             this.btnOpenFile.Text = "open file";
             this.btnOpenFile.UseVisualStyleBackColor = true;
@@ -86,9 +93,9 @@
             // 
             // btnOpenFolder
             // 
-            this.btnOpenFolder.Location = new System.Drawing.Point(422, 12);
+            this.btnOpenFolder.Location = new System.Drawing.Point(362, 10);
             this.btnOpenFolder.Name = "btnOpenFolder";
-            this.btnOpenFolder.Size = new System.Drawing.Size(218, 75);
+            this.btnOpenFolder.Size = new System.Drawing.Size(187, 65);
             this.btnOpenFolder.TabIndex = 3;
             this.btnOpenFolder.Text = "open folder";
             this.btnOpenFolder.UseVisualStyleBackColor = true;
@@ -97,8 +104,8 @@
             // Instructions
             // 
             this.Instructions.AutoSize = true;
-            this.Instructions.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Instructions.Location = new System.Drawing.Point(160, 112);
+            this.Instructions.Font = new System.Drawing.Font("Segoe UI", 15.75F);
+            this.Instructions.Location = new System.Drawing.Point(137, 97);
             this.Instructions.Name = "Instructions";
             this.Instructions.Size = new System.Drawing.Size(482, 60);
             this.Instructions.TabIndex = 5;
@@ -110,19 +117,17 @@
             this.statusConsole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.statusConsole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.statusConsole.FormattingEnabled = true;
-            this.statusConsole.ItemHeight = 15;
-            this.statusConsole.Location = new System.Drawing.Point(160, 275);
+            this.statusConsole.Location = new System.Drawing.Point(137, 238);
             this.statusConsole.Name = "statusConsole";
-            this.statusConsole.Size = new System.Drawing.Size(480, 169);
+            this.statusConsole.Size = new System.Drawing.Size(412, 147);
             this.statusConsole.TabIndex = 7;
-            this.statusConsole.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // CryptoForm
             // 
             this.AllowDrop = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(686, 390);
             this.Controls.Add(this.statusConsole);
             this.Controls.Add(this.Instructions);
             this.Controls.Add(this.btnOpenFolder);
@@ -130,10 +135,8 @@
             this.Controls.Add(this.btnGenerateKey);
             this.Controls.Add(this.btnDecrypt);
             this.Controls.Add(this.btnEncrypt);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CryptoForm";
             this.Text = "CryptorX(beta)";
-            this.Load += new System.EventHandler(this.CryptoForm_Load);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.Form1_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.Form1_DragEnter);
             this.ResumeLayout(false);
@@ -154,4 +157,3 @@
         private System.Windows.Forms.ListBox statusConsole;
     }
 }
-

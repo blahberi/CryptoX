@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,7 +27,7 @@ namespace encryptor_CS_X
         {
             StatusConsole console = new StatusConsole(statusConsole);
             string[] filePaths = (string[])e.Data.GetData(DataFormats.FileDrop, false);
-            foreach(string filePath in filePaths)
+            foreach (string filePath in filePaths)
             {
                 this.path = filePath;
                 Instructions.Text = filePath;
@@ -92,22 +93,8 @@ namespace encryptor_CS_X
 
         private void btnGenerateKey_Click(object sender, EventArgs e)
         {
-            this.crypto.GenerateKey();
+            Instructions.Text = "hello world";
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void CryptoForm_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
