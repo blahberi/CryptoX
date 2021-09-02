@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"><?define CryptoX_TargetDir=$(var.CryptoX.TargetDir)?>
+	<Product Id="*" Name="CryptoX" Language="1033" Version="1.5" Manufacturer="blahberi" UpgradeCode="a6f8dca2-2faa-4ea5-8f95-598f90da308c">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+    
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+		<MediaTemplate EmbedCab="yes"/>
+
+    <Icon Id="icon.ico" SourceFile="$(var.ProjectDir)logo.ico"/>
+    <Property Id="ARPPRODUCTICON" Value="icon.ico" />
+
+	  <WixVariable Id="WixUIDialogBmp" Value="Images\background.bmp" />
+    <WixVariable Id="WixUIBannerBmp" Value="Images\banner.bmp" />
+    <WixVariable Id="WixUILicenseRtf" Value="$(var.ProjectDir)License.rtf"/>
+    
+		<Property Id="WIXUI_INSTALLDIR" Value="TESTFILEPRODUCTDIR" />
+    <UIRef Id="WixUI_InstallDir" />
+
+    <Feature Id="ProductFeature" Title="CryptoXinstaller" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+      <ComponentRef Id="ApplicationShortcut" />
+    </Feature>
+	</Product>
+
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder">
+        <Directory Id="TESTFILEPRODUCTDIR" Name="CryptoX">
+					<Directory Id="INSTALLFOLDER" Name="CryptoX" />
+        </Directory>
+			</Directory>
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ApplicationProgramsFolder" Name="CryptoX" />
+      </Directory>
+		</Directory>
+	</Fragment>
+	
+  <Fragment>
+    <DirectoryRef Id="ApplicationProgramsFolder">
+      <Component Id="ApplicationShortcut" Guid="9bd13330-6540-406f-a3a8-d7f7c69ae7f9">
+        <Shortcut Id="ApplicationStartMenuShortcut" Name="CryptoX" Description="CryptoX" Target="[INSTALLFOLDER]CryptoX.exe" WorkingDirectory="INSTALLFOLDER" />
+        <Shortcut Id="UninstallProduct"             
+                    Name="uninstall CryptoX"
+                    Description="Uninstalls CryptoX"
+                    Target="[System64Folder]msiexec.exe"
+                    Arguments="/x [ProductCode]"/>
+        <RemoveFolder Id="RemoveApplicationProgramsFolder" Directory="ApplicationProgramsFolder" On="uninstall" />
+        <RegistryValue Root="HKCU" Key="Software\CryptoX" Name="installed" Type="integer" Value="1" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  
+	<Fragment>
+		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+			<!-- TODO: Remove the comments around this Component element and the ComponentRef below in order to add resources to this installer. -->
+			<!-- <Component Id="ProductComponent"> -->
+				<!-- TODO: Insert files, registry keys, and other resources here. -->
+			<!-- </Component> -->
+			<Component Id="CryptoX.exe.config" Guid="8294f345-b082-4d8a-a43e-e43300a67d9e">
+			  <File Id="CryptoX.exe.config" Name="CryptoX.exe.config" Source="$(var.CryptoX_TargetDir)CryptoX.exe.config" />
+			</Component>
+			<Component Id="CryptoX.exe" Guid="364dbc42-0145-41e8-8afe-70492bfbb2df">
+			  <File Id="CryptoX.exe" Name="CryptoX.exe" Source="$(var.CryptoX_TargetDir)CryptoX.exe" />
+			</Component>
+		</ComponentGroup>
+	</Fragment>
+</Wix>

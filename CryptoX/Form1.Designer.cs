@@ -36,6 +36,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CryptoForm));
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.btnEncrypt = new System.Windows.Forms.Button();
             this.btnDecrypt = new System.Windows.Forms.Button();
@@ -43,7 +44,7 @@
             this.btnOpenFile = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.btnOpenFolder = new System.Windows.Forms.Button();
-            this.Instructions = new System.Windows.Forms.Label();
+            this.lblFileName = new System.Windows.Forms.Label();
             this.statusConsole = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
@@ -101,16 +102,16 @@
             this.btnOpenFolder.UseVisualStyleBackColor = true;
             this.btnOpenFolder.Click += new System.EventHandler(this.btnOpenFolder_Click);
             // 
-            // Instructions
+            // lblFileName
             // 
-            this.Instructions.AutoSize = true;
-            this.Instructions.Font = new System.Drawing.Font("Segoe UI", 15.75F);
-            this.Instructions.Location = new System.Drawing.Point(137, 97);
-            this.Instructions.Name = "Instructions";
-            this.Instructions.Size = new System.Drawing.Size(482, 60);
-            this.Instructions.TabIndex = 5;
-            this.Instructions.Text = "drag the file you want to operate on in to the form\r\nor use the buttons\r\n";
-            this.Instructions.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblFileName.Font = new System.Drawing.Font("Segoe UI", 15.75F);
+            this.lblFileName.Location = new System.Drawing.Point(2, 96);
+            this.lblFileName.Name = "lblFileName";
+            this.lblFileName.Size = new System.Drawing.Size(683, 60);
+            this.lblFileName.TabIndex = 5;
+            this.lblFileName.Text = "filename";
+            this.lblFileName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblFileName.Visible = false;
             // 
             // statusConsole
             // 
@@ -129,18 +130,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(686, 390);
             this.Controls.Add(this.statusConsole);
-            this.Controls.Add(this.Instructions);
+            this.Controls.Add(this.lblFileName);
             this.Controls.Add(this.btnOpenFolder);
             this.Controls.Add(this.btnOpenFile);
             this.Controls.Add(this.btnGenerateKey);
             this.Controls.Add(this.btnDecrypt);
             this.Controls.Add(this.btnEncrypt);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CryptoForm";
-            this.Text = "CryptorX(beta)";
+            this.Text = "CryptorX";
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.Form1_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.Form1_DragEnter);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -153,7 +154,7 @@
         private System.Windows.Forms.Button btnOpenFile;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.Button btnOpenFolder;
-        private System.Windows.Forms.Label Instructions;
+        private System.Windows.Forms.Label lblFileName;
         private System.Windows.Forms.ListBox statusConsole;
     }
 }

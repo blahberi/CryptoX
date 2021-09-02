@@ -151,7 +151,7 @@ namespace encryptor_CS_X
             {
                 console.add("input was found to be a file");
                 //encypts file
-                console.add("encrypting file");
+                console.add($"encrypting {Path.GetFileName(filePath)}");
                 await TransformAsync(filePath, encryptor);
                 //if the path is the key file
                 if (filePath == "key.key")
@@ -171,7 +171,7 @@ namespace encryptor_CS_X
                 foreach (string file in folder)
                 {
                     //encrypting file with the key
-                    console.add("encrypting files");
+                    console.add($"encrypting {Path.GetFileName(file)}");
                     await TransformAsync(file, encryptor);
                     //if the file is the key file than decrypt key
                     if (file == "key.key")
@@ -191,37 +191,49 @@ namespace encryptor_CS_X
             }
             console.add("operation complete");
         }
-        public async void Decrypt(string filePath)
+        public async void Decrypt(string filePath, ListBox statusConsole)
         {
+            StatusConsole console = new StatusConsole(statusConsole);
+
             var encryptor = this.encryptor;
             var decryptor = this.decryptor;
 
+            console.add("checking if input is file or folder");
             //if path is a file
             if (File.Exists(filePath))
             {
+                console.add("input was found to be a file");
                 //decrypts the file
+                console.add($"decrypting {Path.GetFileName(filePath)}");
                 await TransformAsync(filePath, decryptor);
             }
             //if the path is a directory
             else if (Directory.Exists(filePath))
             {
+                console.add("input was found to be a folder");
                 //taking all the files in the directory
+                console.add("getting all files from folder");
                 string[] folder = Directory.GetFiles(filePath, "*", SearchOption.AllDirectories);
                 //for each file in the directory
                 foreach (string file in folder)
                 {
+                    console.add($"decrypting {Path.GetFileName(file)}");
                     //decrypting file
                     await TransformAsync(file, decryptor);
                 }
             }
+            console.add("operation complete");
         }
-        public async void GenerateKey()
+        public async void GenerateKey(ListBox statusConsole)
         {
+            StatusConsole console = new StatusConsole(statusConsole);
             //generating a new key
+            console.add("generating new key");
             this.aes = KeyGen("key.key");
             //updateing encryptor ans decryptor
             this.encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
             this.decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
+            console.add("operation complete");
         }
     }
 }

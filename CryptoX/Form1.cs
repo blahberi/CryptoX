@@ -21,6 +21,8 @@ namespace encryptor_CS_X
         public CryptoForm()
         {
             InitializeComponent();
+            lblFileName.Text = "";
+            lblFileName.Visible = true;
         }
 
         private void Form1_DragDrop(object sender, DragEventArgs e)
@@ -30,7 +32,7 @@ namespace encryptor_CS_X
             foreach (string filePath in filePaths)
             {
                 this.path = filePath;
-                Instructions.Text = filePath;
+                lblFileName.Text = Path.GetFileName(this.path);
                 console.add($"'{filePath}' was dragged in");
             }
         }
@@ -60,6 +62,7 @@ namespace encryptor_CS_X
                 {
                     //Get the path of specified file
                     this.path = openFileDialog.FileName;
+                    lblFileName.Text = Path.GetFileName(this.path);
                 }
             }
         }
@@ -73,6 +76,7 @@ namespace encryptor_CS_X
                 if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
                 {
                     this.path = fbd.SelectedPath;
+                    lblFileName.Text = Path.GetFileName(this.path);
                 }
             }
         }
@@ -80,21 +84,16 @@ namespace encryptor_CS_X
         private void btnEncrypt_Click(object sender, EventArgs e)
         {
             this.crypto.Encrypt(this.path, statusConsole);
-            this.path = string.Empty;
-            Instructions.Text = "drag the file you want to operate on in to the form \n or use the buttons";
         }
 
         private void btnDecrypt_Click(object sender, EventArgs e)
         {
-            this.crypto.Decrypt(this.path);
-            this.path = string.Empty;
-            Instructions.Text = "drag the file you want to operate on in to the form \n or use the buttons";
+            this.crypto.Decrypt(this.path, statusConsole);
         }
 
         private void btnGenerateKey_Click(object sender, EventArgs e)
         {
-            Instructions.Text = "hello world";
+            this.crypto.GenerateKey(statusConsole);
         }
-
     }
 }
