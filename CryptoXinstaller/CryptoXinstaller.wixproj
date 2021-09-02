@@ -4,7 +4,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>3.10</ProductVersion>
-    <ProjectGuid>72002e91-d866-46d6-898d-eda8fbc9ade4</ProjectGuid>
+    <ProjectGuid>c3b18ab9-471a-4d16-be09-ed54acc45da3</ProjectGuid>
     <SchemaVersion>2.0</SchemaVersion>
     <OutputName>CryptoXinstaller</OutputName>
     <OutputType>Package</OutputType>
@@ -39,9 +39,6 @@
       <HintPath>$(WixExtDir)\WixUIExtension.dll</HintPath>
       <Name>WixUIExtension</Name>
     </WixExtension>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Images" />
   </ItemGroup>
   <Import Project="$(WixTargetsPath)" Condition=" '$(WixTargetsPath)' != '' " />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets" Condition=" '$(WixTargetsPath)' == '' AND Exists('$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets') " />
