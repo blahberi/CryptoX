@@ -4,7 +4,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>3.10</ProductVersion>
-    <ProjectGuid>c3b18ab9-471a-4d16-be09-ed54acc45da3</ProjectGuid>
+    <ProjectGuid>17a8d8ef-c8f9-49f0-98e5-15fa5450f72c</ProjectGuid>
     <SchemaVersion>2.0</SchemaVersion>
     <OutputName>CryptoXinstaller</OutputName>
     <OutputType>Package</OutputType>
@@ -23,6 +23,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CryptoXinstaller.wax" />
+    <Content Include="Images\background.bmp" />
+    <Content Include="Images\banner.bmp" />
+    <Content Include="License.rtf" />
+    <Content Include="logo.ico" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CryptoX\CryptoX.csproj">
@@ -39,6 +43,9 @@
       <HintPath>$(WixExtDir)\WixUIExtension.dll</HintPath>
       <Name>WixUIExtension</Name>
     </WixExtension>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images" />
   </ItemGroup>
   <Import Project="$(WixTargetsPath)" Condition=" '$(WixTargetsPath)' != '' " />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets" Condition=" '$(WixTargetsPath)' == '' AND Exists('$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets') " />
