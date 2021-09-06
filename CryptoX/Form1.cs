@@ -95,5 +95,24 @@ namespace encryptor_CS_X
         {
             this.crypto.GenerateKey(statusConsole);
         }
+        private void btnSaveKey_Click_1(object sender, EventArgs e)
+        {
+            SaveFileDialog save = new SaveFileDialog();
+            save.Filter = "Key file|*.key";
+            save.Title = "Save Key";
+            save.ShowDialog();
+            if (save.FileName != "")
+            {
+                byte[] key = new byte[48];
+                using (FileStream filestream = new FileStream("Key.key", FileMode.Open))
+                {
+                    filestream.Read(key, 0, key.Length);
+                }
+                using (FileStream filestream = new FileStream(save.FileName, FileMode.Create))
+                {
+                    filestream.Write(key, 0, key.Length);
+                }
+            }
+        }
     }
 }

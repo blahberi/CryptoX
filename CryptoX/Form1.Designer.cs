@@ -46,6 +46,7 @@
             this.btnOpenFolder = new System.Windows.Forms.Button();
             this.lblFileName = new System.Windows.Forms.Label();
             this.statusConsole = new System.Windows.Forms.ListBox();
+            this.btnSaveKey = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -123,12 +124,23 @@
             this.statusConsole.Size = new System.Drawing.Size(412, 147);
             this.statusConsole.TabIndex = 7;
             // 
+            // btnSaveKey
+            // 
+            this.btnSaveKey.Location = new System.Drawing.Point(7, 10);
+            this.btnSaveKey.Name = "btnSaveKey";
+            this.btnSaveKey.Size = new System.Drawing.Size(75, 23);
+            this.btnSaveKey.TabIndex = 8;
+            this.btnSaveKey.Text = "save key";
+            this.btnSaveKey.UseVisualStyleBackColor = true;
+            this.btnSaveKey.Click += new System.EventHandler(this.btnSaveKey_Click_1);
+            // 
             // CryptoForm
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(686, 390);
+            this.Controls.Add(this.btnSaveKey);
             this.Controls.Add(this.statusConsole);
             this.Controls.Add(this.lblFileName);
             this.Controls.Add(this.btnOpenFolder);
@@ -156,5 +168,6 @@
         private System.Windows.Forms.Button btnOpenFolder;
         private System.Windows.Forms.Label lblFileName;
         private System.Windows.Forms.ListBox statusConsole;
+        private System.Windows.Forms.Button btnSaveKey;
     }
 }
