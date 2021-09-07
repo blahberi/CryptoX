@@ -1,28 +1,19 @@
 ﻿
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace encryptor_CS_X
 {
-    public partial class CryptoForm : System.Windows.Forms.Form
+    public partial class CryptoForm : Form
     {
         Crypto crypto = new Crypto();
         string path = string.Empty;
 
+
         public CryptoForm()
         {
             InitializeComponent();
-            lblFileName.Text = "";
-            lblFileName.Visible = true;
         }
 
         private void Form1_DragDrop(object sender, DragEventArgs e)
@@ -32,6 +23,8 @@ namespace encryptor_CS_X
             foreach (string filePath in filePaths)
             {
                 this.path = filePath;
+                btnEncrypt.Enabled = true;
+                btnDecrypt.Enabled = true;
                 lblFileName.Text = Path.GetFileName(this.path);
                 console.add($"'{filePath}' was dragged in");
             }
@@ -62,6 +55,8 @@ namespace encryptor_CS_X
                 {
                     //Get the path of specified file
                     this.path = openFileDialog.FileName;
+                    btnEncrypt.Enabled = true;
+                    btnDecrypt.Enabled = true;
                     lblFileName.Text = Path.GetFileName(this.path);
                 }
             }
@@ -76,11 +71,12 @@ namespace encryptor_CS_X
                 if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
                 {
                     this.path = fbd.SelectedPath;
+                    btnEncrypt.Enabled = true;
+                    btnDecrypt.Enabled = true;
                     lblFileName.Text = Path.GetFileName(this.path);
                 }
             }
         }
-
         private void btnEncrypt_Click(object sender, EventArgs e)
         {
             this.crypto.Encrypt(this.path, statusConsole);
@@ -95,7 +91,7 @@ namespace encryptor_CS_X
         {
             this.crypto.GenerateKey(statusConsole);
         }
-        private void btnSaveKey_Click_1(object sender, EventArgs e)
+        private void btnSaveKey_Click(object sender, EventArgs e)
         {
             SaveFileDialog save = new SaveFileDialog();
             save.Filter = "Key file|*.key";
@@ -103,16 +99,101 @@ namespace encryptor_CS_X
             save.ShowDialog();
             if (save.FileName != "")
             {
-                byte[] key = new byte[48];
-                using (FileStream filestream = new FileStream("Key.key", FileMode.Open))
-                {
-                    filestream.Read(key, 0, key.Length);
-                }
+                byte[] key = GetKey();
                 using (FileStream filestream = new FileStream(save.FileName, FileMode.Create))
                 {
                     filestream.Write(key, 0, key.Length);
                 }
             }
         }
+
+        private void btnLoadKey_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog load = new OpenFileDialog();
+            load.Filter = "Key file|*.key";
+            load.Title = "Load Key";
+            load.ShowDialog();
+            if (load.FileName != "")
+            {
+                byte[] key = new byte[48];
+                using (FileStream filestream = new FileStream(load.FileName, FileMode.Open))
+                {
+                    filestream.Read(key, 0, key.Length);
+                }
+                using (FileStream filestream = new FileStream("Key.key", FileMode.Create))
+                {
+                    filestream.Write(key, 0, key.Length);
+                }
+            }
+        }
+
+        private void btnCopyKey_Click(object sender, EventArgs e)
+        {
+            string keyInText;
+            byte[] key = GetKey();
+            keyInText = Convert.ToBase64String(key, 0, key.Length, Base64FormattingOptions.None);
+            Clipboard.SetText(keyInText);
+        }
+        
+        private byte[] GetKey()
+        {
+            byte[] key = new byte[48];
+            using (FileStream filestream = new FileStream("Key.key", FileMode.Open))
+            {
+                filestream.Read(key, 0, key.Length);
+            }
+            return key;
+        }
+
+        private void btnSaveKeyAsText_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog save = new SaveFileDialog();
+            save.Filter = "Text file|*.txt";
+            save.Title = "Save Key";
+            save.ShowDialog();
+            if (save.FileName != "")
+            {
+                byte[] key = GetKey();
+                using (FileStream filestream = new FileStream(save.FileName, FileMode.Create))
+                {
+                    string keyAsText = Convert.ToBase64String(key, 0, key.Length, Base64FormattingOptions.None);
+                    using (StreamWriter streamwriter = new StreamWriter(filestream))
+                    {
+                        streamwriter.Write(keyAsText, 0, key.Length);
+                    }
+                }
+            }
+        }
+
+        private void btnLoadKeyFromFile_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog load = new OpenFileDialog();
+            load.Filter = "Text file|*.txt";
+            load.Title = "Load Key";
+            load.ShowDialog();
+            if (load.FileName != "")
+            {
+                string keyInText;
+                using (FileStream filestream = new FileStream(load.FileName, FileMode.Open))
+                {
+                    using (StreamReader streamreader = new StreamReader(filestream))
+                    {
+                        keyInText = streamreader.ReadLine();
+                    }
+                }
+                byte[] key = Convert.FromBase64String(keyInText);
+                using (FileStream filestream = new FileStream("Key.key", FileMode.Create))
+                {
+                    filestream.Write(key, 0, key.Length);
+                }
+            }
+        }
+
+        private void btnLoadKeyFromText_Click(object sender, EventArgs e)
+        {
+            LoadKeyForm load = new LoadKeyForm();
+            load.Show();
+        }
+
     }
 }

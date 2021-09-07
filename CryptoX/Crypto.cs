@@ -224,7 +224,7 @@ namespace encryptor_CS_X
             }
             console.add("operation complete");
         }
-        public async void GenerateKey(ListBox statusConsole)
+        public void GenerateKey(ListBox statusConsole)
         {
             StatusConsole console = new StatusConsole(statusConsole);
             //generating a new key
