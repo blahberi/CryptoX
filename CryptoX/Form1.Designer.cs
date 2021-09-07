@@ -179,6 +179,7 @@
             this.tsFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnOpenFile,
             this.btnOpenFolder});
+            this.tsFile.ForeColor = System.Drawing.Color.White;
             this.tsFile.Image = ((System.Drawing.Image)(resources.GetObject("tsFile.Image")));
             this.tsFile.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsFile.Name = "tsFile";
@@ -269,6 +270,7 @@
             this.tsKey.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuKeyAsFile,
             this.menuKeyAsText});
+            this.tsKey.ForeColor = System.Drawing.Color.White;
             this.tsKey.Image = ((System.Drawing.Image)(resources.GetObject("tsKey.Image")));
             this.tsKey.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsKey.Name = "tsKey";
