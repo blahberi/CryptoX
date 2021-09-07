@@ -21,6 +21,11 @@ namespace encryptor_CS_X
 
         public Crypto()
         {
+            ReloadAes();
+        }
+
+        void ReloadAes()
+        {
             this.aes = KeyLoad("Key.key");
             this.encryptor = this.aes.CreateEncryptor(this.aes.Key, this.aes.IV);
             this.decryptor = this.aes.CreateDecryptor(this.aes.Key, this.aes.IV);
@@ -140,6 +145,7 @@ namespace encryptor_CS_X
 
         public async void Encrypt(string filePath, ListBox statusConsole)
         {
+            ReloadAes();
             StatusConsole console = new StatusConsole(statusConsole);
             var encryptor = this.encryptor;
             var decryptor = this.decryptor;
@@ -193,6 +199,7 @@ namespace encryptor_CS_X
         }
         public async void Decrypt(string filePath, ListBox statusConsole)
         {
+            ReloadAes();
             StatusConsole console = new StatusConsole(statusConsole);
 
             var encryptor = this.encryptor;

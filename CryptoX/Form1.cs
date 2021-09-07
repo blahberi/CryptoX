@@ -133,7 +133,7 @@ namespace encryptor_CS_X
             byte[] key = GetKey();
             keyInText = Convert.ToBase64String(key, 0, key.Length, Base64FormattingOptions.None);
             Clipboard.SetText(keyInText);
-        }
+        } 
         
         private byte[] GetKey()
         {
