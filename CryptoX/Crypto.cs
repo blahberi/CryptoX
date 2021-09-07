@@ -143,10 +143,10 @@ namespace encryptor_CS_X
             File.Delete("temp.txt");
         }
 
-        public async void Encrypt(string filePath, ListBox statusConsole)
+        public async void Encrypt(string filePath, StatusConsole console)
         {
             ReloadAes();
-            StatusConsole console = new StatusConsole(statusConsole);
+            console.clear();
             var encryptor = this.encryptor;
             var decryptor = this.decryptor;
             //a variable dor a case where the key is encryoted
@@ -197,10 +197,10 @@ namespace encryptor_CS_X
             }
             console.add("operation complete");
         }
-        public async void Decrypt(string filePath, ListBox statusConsole)
+        public async void Decrypt(string filePath, StatusConsole console)
         {
             ReloadAes();
-            StatusConsole console = new StatusConsole(statusConsole);
+            console.clear();
 
             var encryptor = this.encryptor;
             var decryptor = this.decryptor;
@@ -231,9 +231,9 @@ namespace encryptor_CS_X
             }
             console.add("operation complete");
         }
-        public void GenerateKey(ListBox statusConsole)
+        public void GenerateKey(StatusConsole console)
         {
-            StatusConsole console = new StatusConsole(statusConsole);
+            console.clear();
             //generating a new key
             console.add("generating new key");
             this.aes = KeyGen("key.key");

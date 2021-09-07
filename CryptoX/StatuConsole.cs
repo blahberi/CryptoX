@@ -25,5 +25,10 @@ namespace encryptor_CS_X
             statusConsole.SelectedIndex = statusConsole.Items.Count - 1;
             statusConsole.SelectedIndex = -1;
         }
+
+        public void clear()
+        {
+            this.statusConsole.Items.Clear();
+        }
     }
 }

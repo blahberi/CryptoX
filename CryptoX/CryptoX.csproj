@@ -79,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Crypto.cs" />
+    <Compile Include="CustomToolStrip.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

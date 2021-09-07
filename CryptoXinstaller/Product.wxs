@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
   <?define CryptoX_TargetDir=$(var.CryptoX.TargetDir)?>
-  <Product Id="*" Name="CryptoX" Language="1033" Version="1.5" Manufacturer="blahberi" UpgradeCode="a8a096a7-6c8d-4be3-939c-a8033ce7df31">
+  <Product Id="*" Name="CryptoX" Language="1033" Version="2.0" Manufacturer="blahberi" UpgradeCode="a8a096a7-6c8d-4be3-939c-a8033ce7df31">
     <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
 
     <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />

@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.IO;
 using System.Windows.Forms;
 
@@ -9,16 +8,18 @@ namespace encryptor_CS_X
     {
         Crypto crypto = new Crypto();
         string path = string.Empty;
-
-
+        StatusConsole console;
         public CryptoForm()
         {
             InitializeComponent();
         }
-
+        private void CryptoForm_Load(object sender, EventArgs e)
+        {
+            ts.Renderer = new CustomToolStrip();
+            console = new StatusConsole(statusConsole);
+        }
         private void Form1_DragDrop(object sender, DragEventArgs e)
         {
-            StatusConsole console = new StatusConsole(statusConsole);
             string[] filePaths = (string[])e.Data.GetData(DataFormats.FileDrop, false);
             foreach (string filePath in filePaths)
             {
@@ -26,7 +27,7 @@ namespace encryptor_CS_X
                 btnEncrypt.Enabled = true;
                 btnDecrypt.Enabled = true;
                 lblFileName.Text = Path.GetFileName(this.path);
-                console.add($"'{filePath}' was dragged in");
+                console.add($"'{Path.GetFileName(filePath)}' was dragged in");
             }
         }
 
@@ -53,11 +54,11 @@ namespace encryptor_CS_X
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    //Get the path of specified file
                     this.path = openFileDialog.FileName;
                     btnEncrypt.Enabled = true;
                     btnDecrypt.Enabled = true;
                     lblFileName.Text = Path.GetFileName(this.path);
+                    console.add($"'{Path.GetFileName(this.path)}' was selected");
                 }
             }
         }
@@ -74,22 +75,23 @@ namespace encryptor_CS_X
                     btnEncrypt.Enabled = true;
                     btnDecrypt.Enabled = true;
                     lblFileName.Text = Path.GetFileName(this.path);
+                    console.add($"'{Path.GetFileName(this.path)}' was selected");
                 }
             }
         }
         private void btnEncrypt_Click(object sender, EventArgs e)
         {
-            this.crypto.Encrypt(this.path, statusConsole);
+            this.crypto.Encrypt(this.path, console);
         }
 
         private void btnDecrypt_Click(object sender, EventArgs e)
         {
-            this.crypto.Decrypt(this.path, statusConsole);
+            this.crypto.Decrypt(this.path, console);
         }
 
         private void btnGenerateKey_Click(object sender, EventArgs e)
         {
-            this.crypto.GenerateKey(statusConsole);
+            this.crypto.GenerateKey(console);
         }
         private void btnSaveKey_Click(object sender, EventArgs e)
         {
@@ -194,6 +196,5 @@ namespace encryptor_CS_X
             LoadKeyForm load = new LoadKeyForm();
             load.Show();
         }
-
     }
 }
