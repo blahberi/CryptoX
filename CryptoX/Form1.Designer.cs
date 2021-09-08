@@ -161,14 +161,14 @@
             // btnOpenFile
             // 
             this.btnOpenFile.Name = "btnOpenFile";
-            this.btnOpenFile.Size = new System.Drawing.Size(180, 22);
+            this.btnOpenFile.Size = new System.Drawing.Size(137, 22);
             this.btnOpenFile.Text = "Open file";
             this.btnOpenFile.Click += new System.EventHandler(this.btnOpenFile_Click);
             // 
             // btnOpenFolder
             // 
             this.btnOpenFolder.Name = "btnOpenFolder";
-            this.btnOpenFolder.Size = new System.Drawing.Size(180, 22);
+            this.btnOpenFolder.Size = new System.Drawing.Size(137, 22);
             this.btnOpenFolder.Text = "Open folder";
             this.btnOpenFolder.Click += new System.EventHandler(this.btnOpenFolder_Click);
             // 
@@ -191,20 +191,20 @@
             this.btnLoadKey,
             this.btnSaveKey});
             this.menuKeyAsFile.Name = "menuKeyAsFile";
-            this.menuKeyAsFile.Size = new System.Drawing.Size(180, 22);
+            this.menuKeyAsFile.Size = new System.Drawing.Size(130, 22);
             this.menuKeyAsFile.Text = "Key as file";
             // 
             // btnLoadKey
             // 
             this.btnLoadKey.Name = "btnLoadKey";
-            this.btnLoadKey.Size = new System.Drawing.Size(180, 22);
+            this.btnLoadKey.Size = new System.Drawing.Size(122, 22);
             this.btnLoadKey.Text = "Load Key";
             this.btnLoadKey.Click += new System.EventHandler(this.btnLoadKey_Click);
             // 
             // btnSaveKey
             // 
             this.btnSaveKey.Name = "btnSaveKey";
-            this.btnSaveKey.Size = new System.Drawing.Size(180, 22);
+            this.btnSaveKey.Size = new System.Drawing.Size(122, 22);
             this.btnSaveKey.Text = "Save key";
             this.btnSaveKey.Click += new System.EventHandler(this.btnSaveKey_Click);
             // 
@@ -214,7 +214,7 @@
             this.menuGetKey,
             this.menuSaveKey});
             this.menuKeyAsText.Name = "menuKeyAsText";
-            this.menuKeyAsText.Size = new System.Drawing.Size(180, 22);
+            this.menuKeyAsText.Size = new System.Drawing.Size(130, 22);
             this.menuKeyAsText.Text = "Key as text";
             // 
             // menuGetKey
@@ -223,7 +223,7 @@
             this.btnCopyKey,
             this.btnSaveKeyAsText});
             this.menuGetKey.Name = "menuGetKey";
-            this.menuGetKey.Size = new System.Drawing.Size(180, 22);
+            this.menuGetKey.Size = new System.Drawing.Size(121, 22);
             this.menuGetKey.Text = "Get key";
             // 
             // btnCopyKey
@@ -246,20 +246,20 @@
             this.btnLoadKeyFromText,
             this.btnLoadKeyFromFile});
             this.menuSaveKey.Name = "menuSaveKey";
-            this.menuSaveKey.Size = new System.Drawing.Size(180, 22);
+            this.menuSaveKey.Size = new System.Drawing.Size(121, 22);
             this.menuSaveKey.Text = "Load key";
             // 
             // btnLoadKeyFromText
             // 
             this.btnLoadKeyFromText.Name = "btnLoadKeyFromText";
-            this.btnLoadKeyFromText.Size = new System.Drawing.Size(180, 22);
+            this.btnLoadKeyFromText.Size = new System.Drawing.Size(166, 22);
             this.btnLoadKeyFromText.Text = "paste in key";
             this.btnLoadKeyFromText.Click += new System.EventHandler(this.btnLoadKeyFromText_Click);
             // 
             // btnLoadKeyFromFile
             // 
             this.btnLoadKeyFromFile.Name = "btnLoadKeyFromFile";
-            this.btnLoadKeyFromFile.Size = new System.Drawing.Size(180, 22);
+            this.btnLoadKeyFromFile.Size = new System.Drawing.Size(166, 22);
             this.btnLoadKeyFromFile.Text = "load key from file";
             this.btnLoadKeyFromFile.Click += new System.EventHandler(this.btnLoadKeyFromFile_Click);
             // 
@@ -294,7 +294,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "CryptoForm";
-            this.Text = "CryptorX";
+            this.Text = "CryptoX";
             this.Load += new System.EventHandler(this.CryptoForm_Load);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.Form1_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.Form1_DragEnter);

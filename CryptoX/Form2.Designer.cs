@@ -47,7 +47,7 @@ namespace encryptor_CS_X
             // lblPaste
             // 
             this.lblPaste.AutoSize = true;
-            this.lblPaste.Location = new System.Drawing.Point(188, 7);
+            this.lblPaste.Location = new System.Drawing.Point(200, 7);
             this.lblPaste.Name = "lblPaste";
             this.lblPaste.Size = new System.Drawing.Size(81, 13);
             this.lblPaste.TabIndex = 1;
@@ -55,7 +55,7 @@ namespace encryptor_CS_X
             // 
             // btnLoad
             // 
-            this.btnLoad.Location = new System.Drawing.Point(193, 49);
+            this.btnLoad.Location = new System.Drawing.Point(203, 49);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(75, 23);
             this.btnLoad.TabIndex = 2;

@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Drawing;
 using System.IO;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace encryptor_CS_X
@@ -13,6 +15,7 @@ namespace encryptor_CS_X
         {
             InitializeComponent();
         }
+
         private void CryptoForm_Load(object sender, EventArgs e)
         {
             ts.Renderer = new CustomToolStrip();
@@ -196,5 +199,6 @@ namespace encryptor_CS_X
             LoadKeyForm load = new LoadKeyForm();
             load.Show();
         }
+
     }
 }
