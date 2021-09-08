@@ -212,7 +212,15 @@ namespace encryptor_CS_X
                 console.add("input was found to be a file");
                 //decrypts the file
                 console.add($"decrypting {Path.GetFileName(filePath)}");
-                await TransformAsync(filePath, decryptor);
+                try
+                {
+                    await TransformAsync(filePath, decryptor);
+                }
+                catch
+                {
+                    console.add($"file is already decrypted or you are using the wrong key");
+                    return;
+                }
             }
             //if the path is a directory
             else if (Directory.Exists(filePath))
