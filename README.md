@@ -18,4 +18,4 @@ Install here: https://github.com/blahberi/CryptoX/releases/download/v2.0/CryptoX
 Generating a new key will completely overwrite the old key.<br>
 There will be no way of getting that key back. all of the files that are still encrypted with the old key will be lost permenatly.<br>
 I am not responsible for lost files, use at your own risk!
-## ⚠WARNINGG⚠
+## ⚠WARNING⚠
